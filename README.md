@@ -11,7 +11,7 @@ Go Sane is a set of linters that forbids some Go features I think should never h
 This repository contains three distinct parts:
 1. New linters: `nogenerics`, `noiter`, `noshortif`. Usable on their own or with other tools.
 2. The `gosane` command itself: an all-in-one linter combining these new linters and some existing ones.
-3. A `.golangci-lint.yml` template, combining these new linters and some existing ones.
+3. A `.golangci.yml` template, combining these new linters and some existing ones.
 
 > [!NOTE]
 > `nogenerics`, `noiter` and `noshortif` are in the process of being added to `golangci-lint` list of linters.
@@ -47,7 +47,7 @@ In Go, you should have only one way to do something.
 
 </details>
 
-### Existing linters used by gosane and `.golangci-lint.yml` template
+### Existing linters used by gosane and `.golangci.yml` template
 
 <details>
 <summary><a href="https://github.com/ashanbrown/forbidigo">forbidigo</a> with custom patterns</summary>
@@ -82,32 +82,22 @@ Just copy all or part of `.golangci.yaml` into your own config. This allows you 
 
 ### Standalone
 
-Install `nogenerics`, `noiter`, `shortif` or the all-in-one `gosane`, then run them manually or via `go vet`:
+`nogenerics`, `noiter`, `shortif` or the all-in-one `gosane` are binaries that can be used by themselves, or with `go vet`.  
+
 ```shell
-go install github.com/alexandregv/gosane/cmd/nogenerics@latest
-go install github.com/alexandregv/gosane/cmd/noiter@latest
-go install github.com/alexandregv/gosane/cmd/noshortif@latest
+# go install + manual run
+go install github.com/alexandregv/gosane/cmd/gosane@latest
+gosane ./...
 
-go vet -vettool=$(which nogenerics) ./...
-go vet -vettool=$(which noiter) ./...
-go vet -vettool=$(which noshortif) ./...
-
-# Or gosane all-in-one:
+# go install + go vet
 go install github.com/alexandregv/gosane/cmd/gosane@latest
 go vet -vettool=$(which gosane) ./...
-```
 
-You can also use Go 1.24's `tool`:
-```shell
-go get -tool github.com/alexandregv/gosane/cmd/nogenerics@latest
-go get -tool github.com/alexandregv/gosane/cmd/noiter@latest
-go get -tool github.com/alexandregv/gosane/cmd/noshortif@latest
+# go run + go vet
+go vet -vettool=$(go run -n github.com/alexandregv/gosane/cmd/gosane@latest 2>&1) ./...
 
-go vet -vettool=$(go tool -n github.com/alexandregv/gosane/cmd/nogenerics) ./...
-go vet -vettool=$(go tool -n github.com/alexandregv/gosane/cmd/noiter) ./...
-go vet -vettool=$(go tool -n github.com/alexandregv/gosane/cmd/noshortif) ./...
-
-# Or gosane all-in-one:
+# go tool + go vet
 go get -tool github.com/alexandregv/gosane/cmd/gosane@latest
 go vet -vettool=$(go tool -n github.com/alexandregv/gosane/cmd/gosane) ./...
 ```
+Replace `gosane` with any of `nogenerics`, `noiter` or `noshortif` if you want just a specific linter.
