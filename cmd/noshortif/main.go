@@ -1,3 +1,4 @@
+// Noshortif lints Go programs by flagging use of short-if syntax.
 package main
 
 import (

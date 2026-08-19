@@ -1,4 +1,4 @@
-// Package noinits reimplements gochecknoinits but using the go/analysis standard.
+// Package noinits reimplements gochecknoinits but using the [go/analysis.Analyzer] standard.
 // golangci-lint also [reimplements it but doesn't export it].
 //
 // [reimplements it but doesn't export it]: https://github.com/golangci/golangci-lint/blob/main/pkg/golinters/gochecknoinits/gochecknoinits.go

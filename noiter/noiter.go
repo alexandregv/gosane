@@ -1,3 +1,4 @@
+// Package noiter implements [go/analysis.Analyzer] and flags usage of iter.
 package noiter
 
 import (

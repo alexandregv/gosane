@@ -1,3 +1,6 @@
+// Gosane lints Go programs. It merges multiple linters:
+// nogenerics, noinits, noiter, noshortif, noinlineerr,
+// gochecknoglobals and forbidigo.
 package main
 
 import (

@@ -1,3 +1,5 @@
+// Package nogenerics implements [go/analysis.Analyzer] and
+// flags usage of generics.
 package nogenerics
 
 import (

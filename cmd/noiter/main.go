@@ -1,3 +1,4 @@
+// Noiter lints Go programs by flagging use of iter package.
 package main
 
 import (

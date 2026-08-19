@@ -1,4 +1,4 @@
-// Package noshortif forbids the short-if syntax.
+// Package noshortif implements [go/analysis.Analyzer] and forbids the short-if syntax.
 package noshortif
 
 import (

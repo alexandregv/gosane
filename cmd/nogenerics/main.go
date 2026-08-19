@@ -1,3 +1,4 @@
+// Nogenerics lints Go programs by flagging use of generics.
 package main
 
 import (
