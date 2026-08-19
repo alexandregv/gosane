@@ -10,6 +10,7 @@ import (
 	"github.com/alexandregv/gosane/nogenerics"
 	"github.com/alexandregv/gosane/noinits"
 	"github.com/alexandregv/gosane/noiter"
+	"github.com/alexandregv/gosane/noshortif"
 )
 
 func main() {
@@ -18,6 +19,7 @@ func main() {
 		nogenerics.Analyzer(),
 		noinlineerr.NewAnalyzer(),
 		noinits.Analyzer(),
+		noshortif.Analyzer(),
 		checknoglobals.Analyzer(),
 		forbidigo.Analyzer(),
 	)
