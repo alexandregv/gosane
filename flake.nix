@@ -14,9 +14,10 @@
         default = pkgs.mkShell {
           packages = with pkgs; [
             go
+            gofumpt
+            golangci-lint
             gopls
             gotools
-            golangci-lint
             tree-sitter
             tree-sitter-grammars.tree-sitter-go
           ];
