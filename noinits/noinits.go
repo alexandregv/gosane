@@ -1,8 +1,8 @@
-// Package gochecknoinits reimplements gochecknoinits but using the go/analysis standard.
+// Package noinits reimplements gochecknoinits but using the go/analysis standard.
 // golangci-lint also [reimplements it but doesn't export it].
 //
 // [reimplements it but doesn't export it]: https://github.com/golangci/golangci-lint/blob/main/pkg/golinters/gochecknoinits/gochecknoinits.go
-package gochecknoinits
+package noinits
 
 import (
 	"go/ast"
@@ -14,7 +14,7 @@ import (
 
 func Analyzer() *analysis.Analyzer {
 	return &analysis.Analyzer{
-		Name:     "gochecknoinits",
+		Name:     "gochecknoinits", // Use the same name for compatibility, like nolint:gochecknoinits directives
 		Doc:      "Checks that no init functions are present in Go code",
 		Run:      run,
 		Requires: []*analysis.Analyzer{inspect.Analyzer},
