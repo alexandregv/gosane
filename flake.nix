@@ -1,5 +1,5 @@
 {
-  description = "A basic flake with Go devShell";
+  description = "Go back to sanity with these Go linters";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
@@ -22,5 +22,30 @@
           ];
         };
       });
+
+      packages = forAllSystems (pkgs:
+        let
+          name = "gosane";
+          version = "0.1.0";
+        in
+        {
+          default = pkgs.buildGoModule {
+            inherit name version;
+            pname = name;
+            src = ./.;
+            goSum = ./go.sum;
+            vendorHash = "sha256-ztgD9in1B8l5FkuC/E5zNvyum6My586ZpBAaeXRBz8Y=";
+
+            env.CGO_ENABLED = 0;
+
+            meta = {
+              description = "Go back to sanity with these Go linters";
+              homepage = "https://github.com/alexandregv/gosane";
+              license = pkgs.lib.licenses.mit;
+              maintainers = with pkgs.lib.maintainers; [ alexandregv ];
+            };
+          };
+        }
+      );
     };
 }
