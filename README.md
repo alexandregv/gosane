@@ -15,7 +15,8 @@ It:
 
 ### Why?
 
-A great read on this topic: [Go evolves in the wrong direction](https://itnext.io/go-evolves-in-the-wrong-direction-7dfda8a1a620), by Aliaksandr Valialkin.
+A great read on this topic: [Go evolves in the wrong direction](https://itnext.io/go-evolves-in-the-wrong-direction-7dfda8a1a620), by Aliaksandr Valialkin.  
+About Viper global-state functions: https://github.com/spf13/viper/#should-viper-be-a-global-singleton-or-passed-around and https://github.com/spf13/viper/issues/1855.
 
 ### Usage
 
