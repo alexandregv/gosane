@@ -6,7 +6,7 @@ Go Sane is a set of linters that forbids some Go features I think should never h
 - short-if syntax
 - init() functions
 - global variables (with a few exceptions)
-- global-state functions like http.ListenAndServe() or viper.Set/Get*()
+- global-state functions like http.ListenAndServe(), log.Print() or viper.Set/Get*()
 
 It:
 1. Defines three new linters: `nogenerics`, `noiter`, `noshortif`.

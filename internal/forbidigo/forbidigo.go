@@ -18,6 +18,16 @@ func Analyzer() *analysis.Analyzer {
 		Run: makeRun([]string{
 			`^http\.ListenAndServe`,
 
+			`^slog\.Default`,
+			`^slog\.Fatal`,
+			`^slog\.Flags`,
+			`^slog\.Output`,
+			`^slog\.Panic`,
+			`^slog\.Prefix`,
+			`^slog\.Print`,
+			`^slog\.Set`,
+			`^slog\.Writer`,
+
 			`^viper\.Get`,
 			`^viper\.Set`,
 			`^viper\.Bind`,
