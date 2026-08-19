@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=https://golangci-lint.run/jsonschema/golangci.jsonschema.json
+
+# -----
+# nogenerics, noiter and noshortif are in the process of being added to golangci-lint list of linters.
+# They are not added yet, so this config will NOT WORK YET.
+# -----
+
+version: "2"
+
+linters:
+  enable:
+    - nogenerics
+    - noiter
+    - noshortif
+    #- noinlineerr # replace noshortif with noinlineerr if you tolerate short-if except for error handling
+    - forbidigo
+    - gochecknoinits
+    - gochecknoglobals
+
+  settings:
+    forbidigo:
+      forbid:
+        - pattern: ^http\.ListenAndServe
+
+        - pattern: ^slog\.Default
+        - pattern: ^slog\.Fatal
+        - pattern: ^slog\.Flags
+        - pattern: ^slog\.Output
+        - pattern: ^slog\.Panic
+        - pattern: ^slog\.Prefix
+        - pattern: ^slog\.Print
+        - pattern: ^slog\.Set
+        - pattern: ^slog\.Writer
+
+        - pattern: ^viper\.Get
+        - pattern: ^viper\.Set
+        - pattern: ^viper\.Bind
